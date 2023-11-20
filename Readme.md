@@ -7,16 +7,18 @@ dev/restart_docker.sh
 
 
 # set log verbosity to max
-dev/shell.sh
+$ dev/shell.sh
+# as documented here: https://manual.manticoresearch.com/Server_settings/Setting_variables_online#SET
 > SET GLOBAL LOG_LEVEL=debugvv;
 ```
+
 Separate shell for logs
-```
+```bash
 docker logs -f manticore
 ```
 
 Start elixir + MyXQL
-```
+```bash
 cd source
 iex -S mix
 > MyXQL.start_link(port: 9306, hostname: "127.0.0.1")
